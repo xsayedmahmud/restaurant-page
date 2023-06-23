@@ -15,11 +15,13 @@ import vibe from "./asset/img/vibe.jpg";
 
   let container = document.getElementById("container");
 
-  container.style.height = "100%";
+  container.style.height = "100vh";
   container.style.fontFamily = "loraregular";
-  container.style.display = "grid";
-  container.style.gridTemplateRows =
-    "clamp(60px, 7vw, 100px) 1fr clamp(60px, 7vw, 100px) ";
+  // container.style.display = "grid";
+  // container.style.gridTemplateRows =
+  //   "clamp(60px, 7vw, 100px) 1fr clamp(60px, 7vw, 100px) ";
+  container.style.display = "flex";
+  container.style.flexDirection = "column";
 
   createHeader(container, newElm);
   createContent(container, newElm);
@@ -31,10 +33,14 @@ function createHeader(container, newElm) {
   container.appendChild(headingWrapper);
   headingWrapper.style.backgroundColor = "#000";
   headingWrapper.style.width = "100%";
-  headingWrapper.style.height = "100%";
   headingWrapper.style.display = "flex";
   headingWrapper.style.justifyContent = "center";
   headingWrapper.style.padding = "0 clamp(20px, 5vw, 140px)";
+  headingWrapper.style.height = "clamp(60px, 7vw, 100px)";
+  headingWrapper.style.position = "fixed";
+  headingWrapper.style.top = 0;
+  headingWrapper.style.left = 0;
+  headingWrapper.style.zIndex = 10;
 
   let heading = newElm("header");
   headingWrapper.appendChild(heading);
@@ -110,10 +116,9 @@ function createContent(container, newElm) {
   wrapper.style.width = "100%";
   wrapper.style.paddingTop = "100px";
   wrapper.style.width = "100%";
-  wrapper.style.height = "100%";
   wrapper.style.display = "flex";
   wrapper.style.justifyContent = "center";
-  wrapper.style.padding = " clamp(40px, 5vw, 140px)";
+  wrapper.style.padding = "clamp(60px, 7vw, 100px) clamp(40px, 5vw, 140px)";
   wrapper.classList.add("wrapper");
 
   let heroWrapper = newElm("div");
@@ -123,6 +128,7 @@ function createContent(container, newElm) {
   heroWrapper.style.display = "flex";
   heroWrapper.style.gap = "clamp(50px, 5vw, 100px)";
   heroWrapper.classList.add("heroWrapper");
+  heroWrapper.style.marginTop = "clamp(30px, 5vw, 100px)";
 
   let content = newElm("div");
   heroWrapper.appendChild(content);
@@ -221,10 +227,16 @@ function createFooter(container, newElm) {
   container.appendChild(footerWrapper);
   footerWrapper.style.backgroundColor = "#000";
   footerWrapper.style.width = "100%";
-  footerWrapper.style.height = "100%";
+
   footerWrapper.style.display = "flex";
   footerWrapper.style.justifyContent = "center";
   footerWrapper.style.padding = "0 clamp(20px, 5vw, 140px)";
+
+  footerWrapper.style.height = "clamp(60px, 7vw, 100px)";
+  footerWrapper.style.position = "fixed";
+  footerWrapper.style.bottom = 0;
+  footerWrapper.style.left = 0;
+  footerWrapper.style.zIndex = 10;
 
   let footer = newElm("footer");
   footerWrapper.appendChild(footer);

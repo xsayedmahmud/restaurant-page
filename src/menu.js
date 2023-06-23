@@ -22,15 +22,24 @@ export function loadMenu() {
 
   menuContainer.style.width = "100%";
   menuContainer.style.maxWidth = "1200px";
-  menuContainer.style.display = "grid";
-  menuContainer.style.gap = "clamp(15px, 2vw, 50px)";
-  menuContainer.style.gridTemplateColumns = "100px 1fr";
   menuContainer.style.fontFamily = "loraregular";
   menuContainer.classList.add("menuContainer");
+  menuContainer.style.marginTop = "clamp(20px, 2vw, 50px)";
+  menuContainer.style.marginBottom = "30px";
+
+  menuContainer.style.display = "flex";
+  menuContainer.style.gap = "clamp(15px, 2vw, 50px)";
+  menuContainer.style.flexDirection = "column";
+
+  menuContainer.style.position = "relative";
 
   let menuNav = newElm("div");
   menuContainer.appendChild(menuNav);
+  menuNav.style.position = "fixed";
+  // menuNav.style.top = "50px";
+  menuNav.style.transform = "translateY(50px)";
   menuNav.style.display = "flex";
+
   menuNav.style.flexDirection = "column";
   menuNav.style.gap = "clamp(10px, 2vw, 30px)";
   menuNav.style.color = "var(--text-color)";
@@ -69,7 +78,7 @@ export function loadMenu() {
   menuContainer.appendChild(menuItems);
   menuItems.style.display = "grid";
   menuItems.style.gap = "50px";
-
+  menuItems.style.paddingLeft = "120px";
   appetizersItem(menuItems, newElm);
   saladItems(menuItems, newElm);
   mainsItems(menuItems, newElm);
