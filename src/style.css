@@ -58,7 +58,13 @@ h6 {
 /* general  */
 
 :root {
-  --shadow-color: 46deg 65% 52%;
+  --gold-color: #d4af37;
+  --text-color: #00000070;
+  --red-color: #a4243b;
+}
+
+:root {
+  --shadow-color: 227deg 19% 34%;
   --shadow-elevation-low: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
     0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.34),
     1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.34);
@@ -84,12 +90,28 @@ body {
   padding: 0;
 }
 
-body {
-  background-image: url("./asset/img/hero.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  padding: 0 clamp(20px, 5vw, 140px);
+html {
+  scroll-behavior: smooth;
+}
+.heroImg {
+  width: 50%;
+  margin-top: 40px;
+}
+.content {
+  width: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+  .heroWrapper {
+    flex-direction: column;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .heroImg {
+    width: 100%;
+    margin-top: 0px;
+  }
 }
