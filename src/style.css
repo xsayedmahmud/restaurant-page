@@ -91,6 +91,10 @@ body {
 }
 
 html {
+  overflow-y: scroll;
+}
+
+html {
   scroll-behavior: smooth;
 }
 .heroImg {
@@ -101,14 +105,16 @@ html {
   width: 50%;
 }
 
+.reservationInfo,
 .aboutUs {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
+.reservationContainer,
 .aboutContainer {
   display: grid;
-  grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+  grid-template-columns: minmax(300px, 400px) minmax(300px, 1fr);
 }
 
 @media only screen and (max-width: 768px) {
@@ -125,11 +131,13 @@ html {
     margin-top: 0px;
   }
 
+  .reservationContainer,
   .aboutContainer {
     grid-template-columns: minmax(300px, 1fr);
     justify-items: center;
   }
 
+  .reservationInfo,
   .aboutUs {
     align-items: center;
   }

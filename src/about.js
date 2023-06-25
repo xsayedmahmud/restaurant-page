@@ -16,7 +16,7 @@ export function loadAbout() {
   aboutContainer.style.gap = "clamp(40px, 5vw, 100px)";
   // aboutContainer.style.gridTemplateColumns =
   //   "minmax(300px, 1fr) minmax(300px, 1fr)";
-  aboutContainer.style.alignItems = "center";
+  // aboutContainer.style.alignItems = "center";
 
   let aboutUs = newElm("div");
   aboutContainer.appendChild(aboutUs);

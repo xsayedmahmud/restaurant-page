@@ -56,6 +56,15 @@ function createHeader(container, newElm) {
   logo.src = logoSrc;
   heading.appendChild(logo);
   logo.style.height = "100%";
+  logo.style.cursor = "pointer";
+
+  logo.addEventListener("click", () => {
+    const content = document.querySelector("#container > .wrapper");
+    while (content.firstChild) {
+      content.removeChild(content.firstChild);
+    }
+    content.appendChild(createContent(container, newElm));
+  });
 
   let navBar = newElm("nav");
   heading.appendChild(navBar);
@@ -114,7 +123,7 @@ function createContent(container, newElm) {
   let wrapper = newElm("div");
   container.appendChild(wrapper);
   wrapper.style.width = "100%";
-  wrapper.style.paddingTop = "100px";
+  // wrapper.style.paddingTop = "100px";
   wrapper.style.width = "100%";
   wrapper.style.display = "flex";
   wrapper.style.justifyContent = "center";
@@ -219,6 +228,8 @@ function createContent(container, newElm) {
   img1.src = vibe;
   img1.style.borderRadius = "25px";
   img1.style.boxShadow = "var(--shadow-elevation-medium)";
+
+  return heroWrapper;
 }
 
 function createFooter(container, newElm) {
