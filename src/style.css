@@ -101,6 +101,16 @@ html {
   width: 50%;
 }
 
+.aboutUs {
+  display: flex;
+  align-items: flex-end;
+}
+
+.aboutContainer {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+}
+
 @media only screen and (max-width: 768px) {
   .heroWrapper {
     flex-direction: column;
@@ -113,5 +123,14 @@ html {
   .heroImg {
     width: 100%;
     margin-top: 0px;
+  }
+
+  .aboutContainer {
+    grid-template-columns: minmax(300px, 1fr);
+    justify-items: center;
+  }
+
+  .aboutUs {
+    align-items: center;
   }
 }
