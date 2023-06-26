@@ -67,6 +67,7 @@ export function loadAbout() {
   aboutImg.style.display = "flex";
   aboutImg.style.flexDirection = "column";
   aboutImg.style.gap = "15px";
+  aboutImg.classList.add("aboutImg");
 
   let cook = newElm("img");
   aboutImg.appendChild(cook);

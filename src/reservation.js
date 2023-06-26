@@ -81,6 +81,7 @@ export function loadReservation() {
   reservationImg.style.display = "flex";
   reservationImg.style.flexDirection = "column";
   reservationImg.style.gap = "15px";
+  reservationImg.classList.add("reservationImg");
 
   let reservation = newElm("img");
   reservationImg.appendChild(reservation);

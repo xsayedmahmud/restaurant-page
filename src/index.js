@@ -123,7 +123,7 @@ function createContent(container, newElm) {
   let wrapper = newElm("div");
   container.appendChild(wrapper);
   wrapper.style.width = "100%";
-  // wrapper.style.paddingTop = "100px";
+
   wrapper.style.width = "100%";
   wrapper.style.display = "flex";
   wrapper.style.justifyContent = "center";
@@ -193,30 +193,44 @@ function createContent(container, newElm) {
   c2aBtn.style.display = "flex";
   c2aBtn.style.gap = "clamp(16px, 2vw, 2rem)";
 
+  function btnStyle(btn) {
+    btn.style.border = "none";
+    btn.style.width = "clamp(110px, 13vw, 150px)";
+    btn.style.padding = "clamp(3px, .3em, 6px) clamp(5px, .4em, 10px)";
+    btn.style.fontSize = "clamp(1rem, 2vw, 1.3rem)";
+    btn.style.borderRadius = "50px";
+    btn.style.cursor = "pointer";
+  }
+
   let orderNow = newElm("button");
   c2aBtn.appendChild(orderNow);
   orderNow.textContent = "Order Now";
-  orderNow.style.border = "none";
-  orderNow.style.width = "clamp(110px, 13vw, 150px)";
-  orderNow.style.padding = "clamp(3px, .3em, 6px) clamp(5px, .4em, 10px)";
   orderNow.style.backgroundColor = "var(--red-color)";
   orderNow.style.color = "#fff";
-  orderNow.style.fontSize = "clamp(1rem, 2vw, 1.3rem)";
-  orderNow.style.borderRadius = "50px";
-  orderNow.style.cursor = "pointer";
+  btnStyle(orderNow);
+
+  orderNow.addEventListener("click", () => {
+    const content = document.querySelector("#container > .wrapper");
+    while (content.firstChild) {
+      content.removeChild(content.firstChild);
+    }
+    content.appendChild(loadMenu());
+  });
 
   let bookTable = newElm("button");
   c2aBtn.appendChild(bookTable);
-  bookTable.textContent = "Book a Table";
   bookTable.textContent = "Book Table";
-  bookTable.style.border = "none";
-  bookTable.style.width = "clamp(110px, 13vw, 150px)";
-  bookTable.style.padding = "clamp(3px, .3em, 6px) clamp(5px, .4em, 10px)";
   bookTable.style.backgroundColor = "var(--gold-color)";
   bookTable.style.color = "#fff";
-  bookTable.style.fontSize = "clamp(1rem, 2vw, 1.3rem)";
-  bookTable.style.borderRadius = "50px";
-  bookTable.style.cursor = "pointer";
+  btnStyle(bookTable);
+
+  bookTable.addEventListener("click", () => {
+    const content = document.querySelector("#container > .wrapper");
+    while (content.firstChild) {
+      content.removeChild(content.firstChild);
+    }
+    content.appendChild(loadReservation());
+  });
 
   let heroImg = newElm("div");
   heroWrapper.appendChild(heroImg);
@@ -238,11 +252,9 @@ function createFooter(container, newElm) {
   container.appendChild(footerWrapper);
   footerWrapper.style.backgroundColor = "#000";
   footerWrapper.style.width = "100%";
-
   footerWrapper.style.display = "flex";
   footerWrapper.style.justifyContent = "center";
   footerWrapper.style.padding = "0 clamp(20px, 5vw, 140px)";
-
   footerWrapper.style.height = "clamp(60px, 7vw, 100px)";
   footerWrapper.style.position = "fixed";
   footerWrapper.style.bottom = 0;
